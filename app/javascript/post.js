@@ -14,6 +14,10 @@ function post (){
     XHR.send(formData);
     // Ajaxで送信しています。
     XHR.onload = () => {
+      if (XHR.status != 200) {
+        alert(`Error ${XHR.status}: ${XHR.statusText}`);
+        return null;
+      };
       const item = XHR.response.article;
       // レスポンスのうち、コントローラー側で指定したjson形式のデータを変数に代入しています。
       const contentsArea = document.getElementById("contents_area");
