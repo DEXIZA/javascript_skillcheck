@@ -14,11 +14,7 @@ function post (){
     XHR.send(formData);
     // Ajaxで送信しています。
     XHR.onload = () => {
-      if (XHR.status != 200) {
-        alert(`Error ${XHR.status}: ${XHR.statusText}`);
-        return null;
-      };
-      const item = XHR.response.article;
+      alert(`アラートを表示します： ${XHR.status}: ${XHR.statusText}`);
       // レスポンスのうち、コントローラー側で指定したjson形式のデータを変数に代入しています。
       const contentsArea = document.getElementById("contents_area");
       // 今回投稿したデータを追加する要素を取得しています。今回追加する要素の親要素にあたります。
