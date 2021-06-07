@@ -3,6 +3,16 @@ function post (){
   submit.addEventListener("click", (e) => {
     e.preventDefault();
     // 重複防止用
+    const formData = new FormData(document.getElementById("new_article"));
+    // フォームの情報を取得し、Ajaxで送信できる形へと整形しています。
+    const XHR = new XMLHttpRequest();
+    // Ajaxに利用するオブジェクトを生成しています。
+    XHR.open("POST", "/articles", true);
+    // Ajaxに関する情報を初期化し、URIを設定しています。
+    XHR.responseType = "json";
+    // レスポンスとして求めるデータ形式を指定しています
+    XHR.send(formData);
+    // Ajaxで送信しています。
   });
  };
  
