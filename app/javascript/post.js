@@ -14,7 +14,9 @@ function post (){
     XHR.send(formData);
     // Ajaxで送信しています。
     XHR.onload = () => {
-      console.log(XHR.response.article);
+      const list = document.getElementById("contents_area");
+      const formText = document.getElementById("article_text");
+      list.insertAdjacentHTML("afterend", html);
     };
   });
  };
