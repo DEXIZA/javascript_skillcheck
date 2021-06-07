@@ -13,6 +13,9 @@ function post (){
     // レスポンスとして求めるデータ形式を指定しています
     XHR.send(formData);
     // Ajaxで送信しています。
+    XHR.onload = () => {
+      console.log(XHR.response.article);
+    };
   });
  };
  
@@ -22,3 +25,5 @@ function post (){
 //  投稿の確認用メモ
 //  console.log(document.getElementById("new_article"));
 //  // htmlの　post,id: "new_article"から引用している
+
+// 絶対どこかで使う const formData = new FormData(form);
