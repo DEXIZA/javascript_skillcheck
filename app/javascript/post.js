@@ -15,14 +15,20 @@ function post (){
     // Ajaxで送信しています。
     XHR.onload = () => {
       const item = XHR.response.article;
+      // レスポンスのうち、コントローラー側で指定したjson形式のデータを変数に代入しています。
       const contentsArea = document.getElementById("contents_area");
+      // 今回投稿したデータを追加する要素を取得しています。今回追加する要素の親要素にあたります。
       const articleText = document.getElementById("article_text");
+      // フォーム投稿の際にテキストを入力した、テキストエリアを取得しています。
       const HTML = `
         <div class="article">
           ${ item.text }
         </div>`;
+        // 今回追加する要素を定義しています。${ item.text }によって、レスポンスとして返されたデータのうち、textのプロパティを指定しています。
       contentsArea.insertAdjacentHTML("afterbegin", HTML);
+      // 親要素に直前で定義した要素を追加しています。afterbeginは親要素内の最上部に追加することを意味しています。
       articleText.value = "";
+      // フォームの入力欄を空にしています。
     };
   });
  };
